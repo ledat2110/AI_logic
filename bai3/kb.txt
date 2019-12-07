@@ -1,0 +1,153 @@
+parent(queen_elizabeth, prince_charles).
+parent(queen_elizabeth, princess_anne).
+parent(queen_elizabeth, prince_andrew).
+parent(queen_elizabeth, prince_edward).
+
+parent(prince_phillip, prince_charles).
+parent(prince_phillip, princess_anne).
+parent(prince_phillip, prince_andrew).
+parent(prince_phillip, prince_edward).
+
+
+parent(princess_diana, prince_william).
+parent(princess_diana, prince_harry).
+
+parent(prince_charles, prince_william).
+parent(prince_charles, prince_harry).
+
+
+parent(captain_mark_phillips, peter_phillips).
+parent(captain_mark_phillips, zara_phillips).
+
+parent(princess_anne, peter_phillips).
+parent(princess_anne, zara_phillips).
+
+parent(sarah_ferguson, princess_beatrice).
+parent(sarah_ferguson, princess_eugenie).
+
+parent(prince_andrew, princess_beatrice).
+parent(prince_andrew, princess_eugenie).
+
+parent(sophie_rhys_jones, james).
+parent(sophie_rhys_jones, lady_louise).
+
+parent(prince_edward, james).
+parent(prince_edward, lady_louise).
+
+
+parent(prince_william, prince_george).
+parent(prince_william, princess_charlotte).
+
+parent(kate_middleton, prince_george).
+parent(kate_middleton, princess_charlotte).
+
+
+parent(autumn_kelly, savannah_phillips).
+parent(autumn_kelly, isla_phillips).
+
+parent(peter_phillips, savannah_phillips).
+parent(peter_phillips, isla_phillips).
+
+
+parent(zara_phillips, mia_grace_tindall).
+
+parent(mike_tindall, mia_grace_tindall).
+
+
+male(prince_phillip).
+male(prince_charles).
+male(captain_mark_phillips).
+male(timothy_laurence).
+male(prince_andrew).
+male(prince_edward).
+male(prince_william).
+male(prince_harry).
+male(peter_phillips).
+male(mike_tindall).
+male(james).
+male(prince_george).
+
+female(queen_elizabeth).
+female(princess_diana).
+female(camilla_parker_bowles).
+female(princess_anne).
+female(sarah_ferguson).
+female(sophie_rhys_jones).
+female(kate_middleton).
+female(autumn_kelly).
+female(zara_phillips).
+female(princess_beatrice).
+female(princess_eugenie).
+female(lady_louise).
+female(princess_charlotte).
+female(savannah_phillips).
+female(isla_phillips).
+
+
+married(queen_elizabeth, prince_phillip).
+married(prince_charles, camilla_parker_bowles).
+married(princess_anne, timothy_laurence).
+married(sophie_rhys_jones, prince_edward).
+married(prince_william, kate_middleton).
+married(autumn_kelly, peter_phillips).
+married(zara_phillips, mike_tindall).
+
+married(prince_phillip, queen_elizabeth).
+married(camilla_parker_bowles, prince_charles).
+married(timothy_laurence, princess_anne).
+married(prince_edward, sophie_rhys_jones).
+married(kate_middleton, prince_william).
+married(peter_phillips, autumn_kelly).
+married(mike_tindall, zara_phillips).
+
+divorced(princess_diana, prince_charles).
+divorced(captain_mark_phillips, princess_anne).
+divorced(sarah_ferguson,prince_andrew).
+
+divorced(prince_charles, princess_diana).
+divorced(princess_anne, captain_mark_phillips).
+divorced(prince_andrew, sarah_ferguson).
+
+husband(Husband, Wife) :- married(Husband, Wife), male(Husband).
+wife(Wife, Husband) :- married(Husband, Wife), female(Wife).
+father(Parent, Child) :- parent(Parent, Child), male(Parent).
+mother(Parent, Child) :- parent(Parent, Child), female(Parent).
+child(Child, Parent) :- parent(Parent, Child).
+son(Child, Parent) :- parent(Parent, Child), male(Child).
+daughter(Child, Parent) :- parent(Parent, Child), female(Child).
+
+grandparent(GP, GC) :- parent(GP, Parent), parent(Parent, GC).
+grandmother(GM, GC) :- parent(GM, Parent), parent(Parent, GC), female(GM).
+grandfather(GF, GC) :- parent(GF, Parent), parent(Parent, GC), male(GF).
+grandchild(GC, GP) :- parent(GP, Parent), parent(Parent, GC).
+grandson(GS, GP) :- parent(GP, Parent), parent(Parent, GS), male(GS).
+granddaughter(GD, GP) :- parent(GP, Parent), parent(Parent, GD), female(GD).
+
+sibling(Person1, Person2) :- father(Father,Person1), mother(Mother, Person1),father(Father,Person2),mother(Mother,Person2).
+brother(Person, Sibling) :- sibling(Person, Sibling),male(Person).
+sister(Person, Sibling) :- sibling(Person, Sibling),female(Person).
+
+%questions
+husband(prince_charles,diana).
+husband(prince_charles,Who).
+wife(queen_elizabeth,Who).
+father(prince_phillip,Who).
+mother(princess_diana,Who).
+mother(camilla_parker_bowles,Who).
+child(prince_harry,Who).
+son(prince_louis,Who).
+son(prince_george,Who).
+daughter(princess_beatrice,Who).
+grandparent(queen_elizabeth,Who).
+grandmother(princess_diana,Who).
+grandfather(prince_charles,Who).
+grandchild(peter_phillips,Who).
+grandson(james,Who).
+granddaughter(princess_charlotte,Who).
+sibling(peter_phillips,Who).
+brother(james,Who).
+sister(princess_anne,Who).
+aunt(princess_anne,Who).
+uncle(prince_edward,Who).
+niece(princess_beatrice,Who).
+nephew(prince_william,Who).
