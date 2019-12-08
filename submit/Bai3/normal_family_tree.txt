@@ -1,0 +1,109 @@
+parent(adam, woody).
+parent(adam, rose).
+parent(eva, woody).
+parent(eva, rose).
+
+
+parent(peggy, amy).
+parent(peggy, paige).
+
+parent(woody, amy).
+parent(woody, paige).
+
+
+parent(rose, jack).
+parent(rose, paul).
+
+parent(george, jack).
+parent(george, paul).
+
+parent(amy, alex).
+parent(amy, tim).
+
+parent(andrew, alex).
+parent(andrew, tim).
+
+
+parent(ashley, ginger).
+parent(ashley, jackie).
+
+parent(jack, ginger).
+parent(jack, jackie).
+
+male(adam).
+male(woody).
+male(george).
+male(jack).
+male(paul).
+male(andrew).
+male(alex).
+male(tim).
+
+female(eva).
+female(peggy).
+female(rose).
+female(amy).
+female(paige).
+female(ashley).
+female(ginger).
+female(jackie).
+
+
+married(adam, eva).
+married(eva, adam).
+
+married(peggy, woody).
+married(woody, peggy).
+
+married(rose, george).
+married(george, rose).
+
+married(andrew, amy).
+married(amy, andrew).
+
+married(jack, ashley).
+married(ashley, jack).
+
+husband(X, Y) :- married(X, Y), male(X).
+wife(X, Y) :- married(X, Y), female(X).
+father(X, Y) :- parent(X, Y), male(X).
+mother(X, Y) :- parent(X, Y), female(X).
+child(X, Y) :- parent(Y, X).
+son(X, Y) :- parent(Y, X), male(X).
+daughter(X, Y) :- parent(Y, X), female(X).
+
+grandparent(X, Z) :- parent(X, Y), parent(Y, Z).
+grandmother(X, Z) :- parent(X, Y), parent(Y, Z), female(X).
+grandfather(X, Z) :- parent(X, Y), parent(Y, Z), male(X).
+grandchild(X, Z) :- parent(Z, Y), parent(Y, X).
+grandson(X, Z) :- parent(Z, Y), parent(Y, X), male(X).
+granddaughter(X, Z) :- parent(Z, Y), parent(Y, X), female(X).
+
+sibling(X, Y) :- father(Z,X), mother(T,X),father(Z,Y),mother(T,Y),.
+brother(X, Y) :- sibling(X, Y),male(X).
+sister(X, Y) :- sibling(X, Y),female(X).
+
+aunt(X, Z) :- parent(Y,Z),sibling(X, Y),female(X).
+uncle(X, Z) :- parent(Y,Z),sibling(X, Y),male(X).
+
+%questions
+female(amy).
+married(adam, eva).
+divorced(eva, adam).
+parent(adam, rose).
+parent(adam, tim).
+parent(Y, rose).
+mother(ashley, X).
+parent(ashley, alex).
+aunt(ashley, alex).
+brother(jack, X).
+brother(tim, X).
+sister(jackie, X).
+wife(ashley, X).
+son(alex, andrew).
+son(andrew, alex).
+husband(jack, X).
+niece(X, andrew).
+sibling(jack, X).
+uncle(paul, jackie).
+aunt(amy, tim).
