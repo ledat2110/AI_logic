@@ -1,0 +1,102 @@
+1.
+female(amy).
+
+true.
+
+2.
+married(adam, eva).
+
+true.
+
+3.
+divorced(eva, adam).
+
+false.
+
+4. 
+parent(adam, rose).
+
+true.
+
+5.
+parent(adam, tim).
+
+false.
+
+6.
+parent(Y, rose).
+
+Y = 'adam';
+Y = 'rose'.
+
+7.
+mother(ashley, X).
+
+X = ginger;
+X = jackie.
+
+8. 
+parent(ashley, alex).
+
+false.
+
+9.
+aunt(ashley, alex).
+
+false
+
+10.
+brother(jack, X).
+
+X = paul.
+
+11.
+brother(tim, X).
+
+X = alex.
+
+12.
+sister(jackie, X).
+
+X = ginger.
+
+13. 
+wife(ashley, X).
+
+X = jack.
+
+14.
+son(alex, andrew).
+
+true.
+
+15.
+son(andrew, alex).
+
+false.
+
+16. 
+husband(jack, X).
+
+X= ashley.
+
+17.
+niece(X, andrew).
+
+false.
+
+18.
+sibling(jack, X).
+
+X = paul.
+
+19.
+uncle(paul, jackie).
+
+true.
+
+20.
+aunt(amy, tim).
+
+true.
+

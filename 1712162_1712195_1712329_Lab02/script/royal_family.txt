@@ -1,0 +1,117 @@
+1. 
+parent(prince_phillip, prince_charles).
+
+true.
+
+2.
+parent(princess_diana, prince_harry).
+
+true.
+
+3.
+parent(Y, princess_beatrice).
+
+true.
+
+4.
+parent(sophie_rhys_jones, X).
+
+X = james.
+
+5. 
+parent(peter_phillips, sophie_rhys_jones).
+
+false.
+
+6.
+female(timothy_laurence).
+
+false.
+
+7.
+married(zara_phillips, mike_tindall).
+
+true.
+
+8.
+divorced(princess_diana, X).
+
+X = prince_charles.
+
+
+9.
+divorced(princess_anne, captain_mark_phillips).
+
+true.
+
+10.
+brother(prince_harry, Sibling).
+
+Sibling = prince_william.
+
+11.
+brother(prince_william, Sibling).
+
+Sibling = prince_harry.
+
+12.
+sister(princess_anne, X).
+
+X = prince_charles ;
+X = prince_andrew ;
+X = prince_edward .
+
+13. 
+wife(markle, X).
+
+X = prince_harry.
+
+14.
+aunt(princess_anne, prince_harry).
+
+true.
+
+15.
+aunt(princess_anne, prince_william).
+
+true.
+
+16.
+uncle(prince_william, harrison).
+
+true.
+
+17. 
+nephew(harrison, prince_william).
+
+true.
+
+18.
+niece(princess_charlotte, prince_harry).
+
+true.
+
+19.
+parent(X, princess_charlotte).
+
+X = prince_william ;
+X = kate_middleton.
+
+20.
+male(harrison).
+
+true.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

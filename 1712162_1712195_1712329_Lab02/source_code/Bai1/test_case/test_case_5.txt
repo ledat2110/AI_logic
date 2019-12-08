@@ -1,0 +1,17 @@
+M
+15
+S OR M OR L
+-S OR F
+-M OR SE
+-L OR T
+-S OR G
+-M OR R
+-L OR B
+SE OR T
+-B
+-F OR -SE
+-F OR -T
+-SE OR -F
+-SE OR -T
+-T OR -F
+-T OR -SE

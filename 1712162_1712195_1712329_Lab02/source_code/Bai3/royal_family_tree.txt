@@ -1,0 +1,155 @@
+
+parent(queen_elizabeth, prince_charles).
+parent(queen_elizabeth, princess_anne).
+parent(queen_elizabeth, prince_andrew).
+parent(queen_elizabeth, prince_edward).
+
+parent(prince_phillip, prince_charles).
+parent(prince_phillip, princess_anne).
+parent(prince_phillip, prince_andrew).
+parent(prince_phillip, prince_edward).
+
+parent(princess_diana, prince_william).
+parent(princess_diana, prince_harry).
+
+parent(prince_charles, prince_william).
+parent(prince_charles, prince_harry).
+
+parent(captain_mark_phillips, peter_phillips).
+parent(captain_mark_phillips, zara_phillips).
+
+parent(princess_anne, peter_phillips).
+parent(princess_anne, zara_phillips).
+
+parent(sarah_ferguson, princess_beatrice).
+parent(sarah_ferguson, princess_eugenie).
+
+parent(prince_andrew, princess_beatrice).
+parent(prince_andrew, princess_eugenie).
+
+parent(sophie_rhys_jones, james).
+parent(sophie_rhys_jones, lady_louise).
+
+parent(prince_edward, james).
+parent(prince_edward, lady_louise).
+
+parent(prince_william, prince_george).
+parent(prince_william, princess_charlotte).
+parent(prince_william, prince_louis).
+
+parent(kate_middleton, prince_george).
+parent(kate_middleton, princess_charlotte).
+parent(kate_middleton, prince_louis).
+
+parent(prince_harry, harrison).
+parent(markle, harrison).
+
+male(prince_phillip).
+male(prince_charles).
+male(captain_mark_phillips).
+male(timothy_laurence).
+male(prince_andrew).
+male(prince_edward).
+male(prince_william).
+male(prince_harry).
+male(peter_phillips).
+male(mike_tindall).
+male(james).
+male(prince_george).
+male(harrison).
+
+%female
+female(queen_elizabeth).
+female(princess_diana).
+female(camilla_parker_bowles).
+female(princess_anne).
+female(sarah_ferguson).
+female(sophie_rhys_jones).
+female(kate_middleton).
+female(autumn_kelly).
+female(zara_phillips).
+female(princess_beatrice).
+female(princess_eugenie).
+female(lady_louise).
+female(princess_charlotte).
+female(savannah_phillips).
+female(isla_phillips).
+female(markle).
+
+
+married(queen_elizabeth, prince_phillip).
+married(prince_phillip, queen_elizabeth).
+
+married(prince_charles, camilla_parker_bowles).
+married(camilla_parker_bowles, prince_charles).
+
+
+married(prince_harry, markle).
+married(markle, prince_harry).
+
+married(princess_anne, timothy_laurence).
+married(timothy_laurence, princess_anne).
+
+married(sophie_rhys_jones, prince_edward).
+married(prince_edward, sophie_rhys_jones).
+
+married(kate_middleton, prince_william).
+married(prince_william, kate_middleton).
+
+married(autumn_kelly, peter_phillips).
+married(peter_phillips, autumn_kelly).
+
+married(zara_phillips, mike_tindall).
+married(mike_tindall, zara_phillips).
+
+
+divorced(princess_diana, prince_charles).
+divorced(prince_charles, princess_diana).
+
+divorced(captain_mark_phillips, princess_anne).
+divorced(princess_anne, captain_mark_phillips).
+
+
+husband(X, Y) :- married(X, Y), male(X).
+wife(X, Y) :- married(X, Y), female(X).
+father(X, Y) :- parent(X, Y), male(X).
+mother(X, Y) :- parent(X, Y), female(X).
+child(X, Y) :- parent(Y, X).
+son(X, Y) :- parent(Y, X), male(X).
+daughter(X, Y) :- parent(Y, X), female(X).
+
+grandparent(X, Z) :- parent(X, Y), parent(Y, Z).
+grandmother(X, Z) :- parent(X, Y), parent(Y, Z), female(X).
+grandfather(X, Z) :- parent(X, Y), parent(Y, Z), male(X).
+grandchild(X, Z) :- parent(Z, Y), parent(Y, X).
+grandson(X, Z) :- parent(Z, Y), parent(Y, X), male(X).
+granddaughter(X, Z) :- parent(Z, Y), parent(Y, X), female(X).
+
+sibling(X, Y) :- father(Z,X), mother(T,X),father(Z,Y),mother(T,Y).
+brother(X, Y) :- sibling(X, Y),male(X).
+sister(X, Y) :- sibling(X, Y),female(X).
+
+aunt(X, Z) :- parent(Y,Z),sibling(X, Y),female(X).
+uncle(X, Z) :- parent(Y,Z),sibling(X, Y),male(X).
+
+%questions
+parent(prince_phillip, prince_charles).
+parent(princess_diana, prince_harry).
+parent(Y, princess_beatrice).
+parent(sophie_rhys_jones, X).
+parent(peter_phillips, sophie_rhys_jones).
+female(timothy_laurence).
+married(zara_phillips, mike_tindall).
+divorced(princess_diana, X).
+divorced(princess_anne, captain_mark_phillips).
+brother(prince_harry, Sibling).
+brother(prince_william, Sibling).
+sister(princess_anne, X).
+wife(markle, X).
+aunt(princess_anne, prince_harry).
+aunt(princess_anne, prince_william).
+uncle(prince_william, harrison).
+nephew(harrison, prince_william).
+niece(princess_charlotte, prince_harry).
+parent(X, princess_charlotte).
+male(harrison).

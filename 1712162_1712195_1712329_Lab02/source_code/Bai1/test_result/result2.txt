@@ -1,0 +1,39 @@
+7
+C OR A OR E
+B OR A OR E
+B OR C
+-D OR -B
+-D OR -C
+-E
+-F
+7
+C OR A OR -D
+B OR A OR -D
+E OR A
+E OR C
+-B
+E OR B
+-C
+12
+C OR A
+B OR A
+-D OR A
+-D OR C
+-D OR B
+E OR A OR -D
+E
+A OR E
+C
+B
+-D OR E
+A
+8
+-D OR A
+-D
+E OR -D
+E
+A
+C
+B
+{}
+True
